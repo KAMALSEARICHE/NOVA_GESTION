@@ -34,12 +34,13 @@ namespace NovaGestion.UI
         public static readonly Color SidebarHover = Color.FromArgb(0, 98, 51);
         public static readonly Color SidebarActive = Color.FromArgb(210, 16, 52);
 
-        public static Font FontTitle => new Font("Segoe UI", 16F, FontStyle.Bold);
-        public static Font FontSectionTitle => new Font("Segoe UI", 11.5F, FontStyle.Bold);
-        public static Font FontLabel => new Font("Segoe UI", 9F);
-        public static Font FontValue => new Font("Segoe UI", 9.5F);
-        public static Font FontBold => new Font("Segoe UI", 9.5F, FontStyle.Bold);
-        public static Font FontButton => new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        // CACHED FONTS: avoid creating new Font instances on every access (reduces GDI pressure)
+        public static readonly Font FontTitle = new Font("Segoe UI", 16F, FontStyle.Bold);
+        public static readonly Font FontSectionTitle = new Font("Segoe UI", 11.5F, FontStyle.Bold);
+        public static readonly Font FontLabel = new Font("Segoe UI", 9F);
+        public static readonly Font FontValue = new Font("Segoe UI", 9.5F);
+        public static readonly Font FontBold = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+        public static readonly Font FontButton = new Font("Segoe UI", 9.5F, FontStyle.Bold);
     }
 
     /// <summary>

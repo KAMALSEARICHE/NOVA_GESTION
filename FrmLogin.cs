@@ -170,7 +170,7 @@ namespace NovaGestion
                 Cursor = Cursors.Hand
             };
             btnLogin.FlatAppearance.BorderSize = 0;
-            btnLogin.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 20, 40); // لون عنابي عند تمرير الماوس
+            btnLogin.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 20, 40); // لون عنابي عند تمرير الماو��
             ApplyRoundedRegion(btnLogin, 10);
             btnLogin.Click += BtnLogin_Click;
 
@@ -203,6 +203,7 @@ namespace NovaGestion
         {
             control.SizeChanged += (s, e) =>
             {
+                // Create path for rounded rectangle
                 using GraphicsPath path = new GraphicsPath();
                 int d = radius * 2;
                 path.AddArc(0, 0, d, d, 180, 90);
@@ -210,7 +211,12 @@ namespace NovaGestion
                 path.AddArc(control.Width - d, control.Height - d, d, d, 0, 90);
                 path.AddArc(0, control.Height - d, d, d, 90, 90);
                 path.CloseFigure();
-                control.Region = new Region(path);
+
+                // Dispose old region (if any) to avoid GDI leaks, then assign new one
+                var oldRegion = control.Region;
+                var newRegion = new Region(path);
+                control.Region = newRegion;
+                oldRegion?.Dispose();
             };
         }
 

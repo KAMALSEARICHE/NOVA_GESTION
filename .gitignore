@@ -1,0 +1,22 @@
+# Ignore build and user files
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.cache
+*.ncb
+*.sdf
+*.opendb
+*.log
+*.rar
+NovaGestionSolution.rar
+
+# Rider/IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
